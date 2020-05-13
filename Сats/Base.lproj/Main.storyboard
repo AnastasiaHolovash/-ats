@@ -1,24 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XOZ-rI-H8U">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Cat breeds-->
+        <scene sceneID="IRS-mQ-ZXY">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <tableViewController storyboardIdentifier="BreedsListTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qKS-EM-k0u" customClass="BreedsListTableViewController" customModule="Сats" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bjo-L3-I9j">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="qKS-EM-k0u" id="mmQ-ck-wnR"/>
+                            <outlet property="delegate" destination="qKS-EM-k0u" id="eYQ-OM-ti1"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Cat breeds" id="FJn-NF-w7E"/>
+                    <connections>
+                        <segue destination="udJ-LW-ABb" kind="show" id="Dm8-1a-c3s"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2N2-x9-I8r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-443" y="192"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="imD-n8-H81">
+            <objects>
+                <navigationController id="XOZ-rI-H8U" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Zxd-ma-zzw">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="qKS-EM-k0u" kind="relationship" relationship="rootViewController" id="y3r-d5-9Mb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TDD-cY-O1o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1250" y="192"/>
+        </scene>
+        <!--Name-->
+        <scene sceneID="thJ-n6-aqh">
+            <objects>
+                <tableViewController storyboardIdentifier="DetailTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="udJ-LW-ABb" customClass="DetailTableViewController" customModule="Сats" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fiv-ti-1Ki">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="qDh-SU-cUc">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9RM-wb-jZF">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="9RM-wb-jZF" firstAttribute="centerY" secondItem="qDh-SU-cUc" secondAttribute="centerY" id="2Kx-Ry-Df5"/>
+                                <constraint firstAttribute="width" secondItem="9RM-wb-jZF" secondAttribute="width" id="aSD-KF-P20"/>
+                                <constraint firstAttribute="height" secondItem="9RM-wb-jZF" secondAttribute="height" id="lRm-BG-C6O"/>
+                                <constraint firstItem="9RM-wb-jZF" firstAttribute="centerX" secondItem="qDh-SU-cUc" secondAttribute="centerX" id="rIb-b9-EUV"/>
+                            </constraints>
+                        </view>
+                        <connections>
+                            <outlet property="dataSource" destination="udJ-LW-ABb" id="9lD-cm-nQ8"/>
+                            <outlet property="delegate" destination="udJ-LW-ABb" id="Zzb-sT-IlF"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Name" id="qPp-as-jbn"/>
+                    <connections>
+                        <outlet property="catImageView" destination="9RM-wb-jZF" id="45D-K0-nVe"/>
+                        <outlet property="headerView" destination="qDh-SU-cUc" id="AgM-iw-cjZ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ag0-eA-cfA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="398.55072463768118" y="191.51785714285714"/>
         </scene>
     </scenes>
 </document>

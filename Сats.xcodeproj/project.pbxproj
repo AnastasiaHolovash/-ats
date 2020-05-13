@@ -7,25 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D8AADFF246BFE300028D864 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AADFE246BFE300028D864 /* DetailTableViewController.swift */; };
+		5D8AAE01246C0E3B0028D864 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AAE00246C0E3B0028D864 /* Extension.swift */; };
+		5D8AAE03246C42910028D864 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AAE02246C42910028D864 /* ServerManager.swift */; };
 		5DFDFDA0246B2A7E00206265 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDFD9F246B2A7E00206265 /* AppDelegate.swift */; };
 		5DFDFDA2246B2A7E00206265 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDFDA1246B2A7E00206265 /* SceneDelegate.swift */; };
-		5DFDFDA4246B2A7E00206265 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDFDA3246B2A7E00206265 /* ViewController.swift */; };
+		5DFDFDA4246B2A7E00206265 /* BreedsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDFDA3246B2A7E00206265 /* BreedsListTableViewController.swift */; };
 		5DFDFDA7246B2A7F00206265 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DFDFDA5246B2A7F00206265 /* Main.storyboard */; };
 		5DFDFDAA246B2A7F00206265 /* _ats.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDFDA8246B2A7F00206265 /* _ats.xcdatamodeld */; };
 		5DFDFDAC246B2A8800206265 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DFDFDAB246B2A8800206265 /* Assets.xcassets */; };
 		5DFDFDAF246B2A8800206265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DFDFDAD246B2A8800206265 /* LaunchScreen.storyboard */; };
+		5DFDFDB7246B316300206265 /* Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDFDB6246B316300206265 /* Struct.swift */; };
+		5DFDFDBB246B379D00206265 /* BreedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDFDB9246B379D00206265 /* BreedTableViewCell.swift */; };
+		5DFDFDBC246B379D00206265 /* BreedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DFDFDBA246B379D00206265 /* BreedTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D8AADFE246BFE300028D864 /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		5D8AAE00246C0E3B0028D864 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		5D8AAE02246C42910028D864 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		5DFDFD9C246B2A7E00206265 /* Сats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Сats.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DFDFD9F246B2A7E00206265 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DFDFDA1246B2A7E00206265 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5DFDFDA3246B2A7E00206265 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5DFDFDA3246B2A7E00206265 /* BreedsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsListTableViewController.swift; sourceTree = "<group>"; };
 		5DFDFDA6246B2A7F00206265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5DFDFDA9246B2A7F00206265 /* _ats.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = _ats.xcdatamodel; sourceTree = "<group>"; };
 		5DFDFDAB246B2A8800206265 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DFDFDAE246B2A8800206265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5DFDFDB0246B2A8800206265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DFDFDB6246B316300206265 /* Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Struct.swift; sourceTree = "<group>"; };
+		5DFDFDB9246B379D00206265 /* BreedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedTableViewCell.swift; sourceTree = "<group>"; };
+		5DFDFDBA246B379D00206265 /* BreedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreedTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,14 +72,36 @@
 			children = (
 				5DFDFD9F246B2A7E00206265 /* AppDelegate.swift */,
 				5DFDFDA1246B2A7E00206265 /* SceneDelegate.swift */,
-				5DFDFDA3246B2A7E00206265 /* ViewController.swift */,
+				5D8AAE02246C42910028D864 /* ServerManager.swift */,
+				5DFDFDB8246B36F500206265 /* ViewControllers */,
 				5DFDFDA5246B2A7F00206265 /* Main.storyboard */,
+				5DFDFDBD246B37B100206265 /* BreedTableViewCell */,
+				5DFDFDB6246B316300206265 /* Struct.swift */,
+				5D8AAE00246C0E3B0028D864 /* Extension.swift */,
 				5DFDFDAB246B2A8800206265 /* Assets.xcassets */,
 				5DFDFDAD246B2A8800206265 /* LaunchScreen.storyboard */,
 				5DFDFDB0246B2A8800206265 /* Info.plist */,
 				5DFDFDA8246B2A7F00206265 /* _ats.xcdatamodeld */,
 			);
 			path = "Сats";
+			sourceTree = "<group>";
+		};
+		5DFDFDB8246B36F500206265 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5DFDFDA3246B2A7E00206265 /* BreedsListTableViewController.swift */,
+				5D8AADFE246BFE300028D864 /* DetailTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5DFDFDBD246B37B100206265 /* BreedTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5DFDFDB9246B379D00206265 /* BreedTableViewCell.swift */,
+				5DFDFDBA246B379D00206265 /* BreedTableViewCell.xib */,
+			);
+			path = BreedTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +162,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DFDFDBC246B379D00206265 /* BreedTableViewCell.xib in Resources */,
 				5DFDFDAF246B2A8800206265 /* LaunchScreen.storyboard in Resources */,
 				5DFDFDAC246B2A8800206265 /* Assets.xcassets in Resources */,
 				5DFDFDA7246B2A7F00206265 /* Main.storyboard in Resources */,
@@ -141,10 +176,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D8AADFF246BFE300028D864 /* DetailTableViewController.swift in Sources */,
+				5DFDFDBB246B379D00206265 /* BreedTableViewCell.swift in Sources */,
 				5DFDFDAA246B2A7F00206265 /* _ats.xcdatamodeld in Sources */,
-				5DFDFDA4246B2A7E00206265 /* ViewController.swift in Sources */,
+				5DFDFDA4246B2A7E00206265 /* BreedsListTableViewController.swift in Sources */,
 				5DFDFDA0246B2A7E00206265 /* AppDelegate.swift in Sources */,
+				5DFDFDB7246B316300206265 /* Struct.swift in Sources */,
 				5DFDFDA2246B2A7E00206265 /* SceneDelegate.swift in Sources */,
+				5D8AAE03246C42910028D864 /* ServerManager.swift in Sources */,
+				5D8AAE01246C0E3B0028D864 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
