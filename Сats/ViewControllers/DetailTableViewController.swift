@@ -8,23 +8,41 @@
 
 import UIKit
 
-class DetailTableViewController: UITableViewController {
+class DetailTableViewController: UITableViewController, DetailTableViewDelegate {
 
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var catImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
     public var breed: CatBreed?
     private var breedArray: [[String]] = [[], []]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = breed?.name
+        
+//        guard let serchVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "SearchTableViewController").sub as? DetailTableView else { return }
+//        tableView.mydelegate = self
+        nameLabel.text = breed?.name
+//        self.title = breed?.name
         createBreedArray()
         setImage()
     }
     
+    func setTitle() {
+        if self.title == "" {
+            self.title = breed?.name
+        } else {
+            self.title = ""
+        }
+    }
+    
     func setImage() {
         if let breed = breed {
+            // check cached image
+            if let cachedImage = imageCache.object(forKey: "https://api.thecatapi.com/v1/images/search?breed_id=\(breed.id)" as NSString)  {
+                catImageView.image = cachedImage
+                return
+            }
+            // if not, download image from url
             catImageView.loadImageUsingCache(withUrl: "https://api.thecatapi.com/v1/images/search?breed_id=\(breed.id)")
         }
     }

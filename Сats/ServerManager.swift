@@ -43,10 +43,10 @@ extension UIImageView {
         self.image = nil
 
         // check cached image
-        if let cachedImage = imageCache.object(forKey: urlString as NSString)  {
-            self.image = cachedImage
-            return
-        }
+//        if let cachedImage = imageCache.object(forKey: urlString as NSString)  {
+//            self.image = cachedImage
+//            return
+//        }
         
         let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(style: UIActivityIndicatorView.Style.medium)
         addSubview(activityIndicator)

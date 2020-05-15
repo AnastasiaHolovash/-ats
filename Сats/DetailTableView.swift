@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol DetailTableViewDelegate {
+    func setTitle()
+}
+
 class DetailTableView: UITableView {
+    
+    var mydelegate: DetailTableViewDelegate?
 
     var imageViewHeight: NSLayoutConstraint?
     var imageViewBottom: NSLayoutConstraint?
@@ -21,10 +27,16 @@ class DetailTableView: UITableView {
             imageViewHeight = catImageView.constraints.filter{ $0.identifier == "imageViewHeight" }.first
             imageViewBottom = constraints.filter{ $0.identifier == "imageViewBottom" }.first
         }
+        
         let offsetY = -contentOffset.y
+        if offsetY == -263.0 {
+            mydelegate?.setTitle()
+        }
+        
         imageViewBottom?.constant = offsetY >= 0 ? 0 : offsetY / 2
         imageViewHeight?.constant = max(header.bounds.height, header.bounds.height + offsetY)
         header.clipsToBounds = offsetY <= 0
+    
     }
 
 }

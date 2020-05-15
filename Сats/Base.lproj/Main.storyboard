@@ -19,7 +19,9 @@
                             <outlet property="delegate" destination="qKS-EM-k0u" id="eYQ-OM-ti1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Cat breeds" id="FJn-NF-w7E"/>
+                    <navigationItem key="navigationItem" title="Cat breeds" id="FJn-NF-w7E">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Obr-8h-rmB"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="udJ-LW-ABb" kind="show" id="Dm8-1a-c3s"/>
                     </connections>
@@ -35,6 +37,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Zxd-ma-zzw">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
                         <segue destination="qKS-EM-k0u" kind="relationship" relationship="rootViewController" id="y3r-d5-9Mb"/>
@@ -44,7 +47,7 @@
             </objects>
             <point key="canvasLocation" x="-1250" y="192"/>
         </scene>
-        <!--Name-->
+        <!--Detail Table View Controller-->
         <scene sceneID="thJ-n6-aqh">
             <objects>
                 <tableViewController storyboardIdentifier="DetailTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="udJ-LW-ABb" customClass="DetailTableViewController" customModule="Сats" customModuleProvider="target" sceneMemberID="viewController">
@@ -62,11 +65,29 @@
                                         <constraint firstAttribute="height" constant="450" identifier="imageViewHeight" id="XV6-1l-d25"/>
                                     </constraints>
                                 </imageView>
+                                <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGD-Cl-cHQ">
+                                    <rect key="frame" x="0.0" y="305" width="375" height="45"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHB-XT-hre">
+                                    <rect key="frame" x="14" y="305" width="353" height="45"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
+                                <constraint firstItem="fGD-Cl-cHQ" firstAttribute="trailing" secondItem="9RM-wb-jZF" secondAttribute="trailing" id="0gs-62-aOd"/>
+                                <constraint firstItem="LHB-XT-hre" firstAttribute="trailing" secondItem="fGD-Cl-cHQ" secondAttribute="trailing" constant="-8" id="4AA-5b-THi"/>
                                 <constraint firstAttribute="bottom" secondItem="9RM-wb-jZF" secondAttribute="bottom" identifier="imageViewBottom" id="8uR-md-KWA"/>
+                                <constraint firstItem="fGD-Cl-cHQ" firstAttribute="height" secondItem="9RM-wb-jZF" secondAttribute="height" multiplier="0.1" id="Ium-ls-G6c"/>
+                                <constraint firstItem="LHB-XT-hre" firstAttribute="height" secondItem="fGD-Cl-cHQ" secondAttribute="height" id="Uwt-d8-02i"/>
+                                <constraint firstItem="LHB-XT-hre" firstAttribute="leading" secondItem="fGD-Cl-cHQ" secondAttribute="leading" constant="14" id="VAA-lb-5Gv"/>
+                                <constraint firstItem="LHB-XT-hre" firstAttribute="bottom" secondItem="fGD-Cl-cHQ" secondAttribute="bottom" id="bge-Vs-mmg"/>
+                                <constraint firstItem="fGD-Cl-cHQ" firstAttribute="bottom" secondItem="9RM-wb-jZF" secondAttribute="bottom" id="cJ1-Np-cDU"/>
                                 <constraint firstAttribute="trailing" secondItem="9RM-wb-jZF" secondAttribute="trailing" id="g7L-UE-6Na"/>
+                                <constraint firstItem="fGD-Cl-cHQ" firstAttribute="leading" secondItem="9RM-wb-jZF" secondAttribute="leading" id="gF3-kU-Slv"/>
                                 <constraint firstItem="9RM-wb-jZF" firstAttribute="leading" secondItem="qDh-SU-cUc" secondAttribute="leading" id="lRc-7t-Uuf"/>
                             </constraints>
                         </view>
@@ -75,15 +96,16 @@
                             <outlet property="delegate" destination="udJ-LW-ABb" id="Zzb-sT-IlF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Name" id="qPp-as-jbn"/>
+                    <navigationItem key="navigationItem" id="qPp-as-jbn"/>
                     <connections>
                         <outlet property="catImageView" destination="9RM-wb-jZF" id="45D-K0-nVe"/>
                         <outlet property="headerView" destination="qDh-SU-cUc" id="AgM-iw-cjZ"/>
+                        <outlet property="nameLabel" destination="LHB-XT-hre" id="gQC-nT-RWl"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ag0-eA-cfA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="398.55072463768118" y="191.51785714285714"/>
+            <point key="canvasLocation" x="397.60000000000002" y="191.37931034482759"/>
         </scene>
     </scenes>
 </document>
