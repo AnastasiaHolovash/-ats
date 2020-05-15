@@ -10,6 +10,7 @@
 		5D8AADFF246BFE300028D864 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AADFE246BFE300028D864 /* DetailTableViewController.swift */; };
 		5D8AAE01246C0E3B0028D864 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AAE00246C0E3B0028D864 /* Extension.swift */; };
 		5D8AAE03246C42910028D864 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AAE02246C42910028D864 /* ServerManager.swift */; };
+		5DF872BA246EBF360023F03B /* DetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF872B9246EBF360023F03B /* DetailTableView.swift */; };
 		5DFDFDA0246B2A7E00206265 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDFD9F246B2A7E00206265 /* AppDelegate.swift */; };
 		5DFDFDA2246B2A7E00206265 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDFDA1246B2A7E00206265 /* SceneDelegate.swift */; };
 		5DFDFDA4246B2A7E00206265 /* BreedsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDFDA3246B2A7E00206265 /* BreedsListTableViewController.swift */; };
@@ -26,6 +27,7 @@
 		5D8AADFE246BFE300028D864 /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 		5D8AAE00246C0E3B0028D864 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		5D8AAE02246C42910028D864 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
+		5DF872B9246EBF360023F03B /* DetailTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableView.swift; sourceTree = "<group>"; };
 		5DFDFD9C246B2A7E00206265 /* Сats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Сats.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DFDFD9F246B2A7E00206265 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DFDFDA1246B2A7E00206265 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				5D8AAE02246C42910028D864 /* ServerManager.swift */,
 				5DFDFDB8246B36F500206265 /* ViewControllers */,
 				5DFDFDA5246B2A7F00206265 /* Main.storyboard */,
+				5DF872B9246EBF360023F03B /* DetailTableView.swift */,
 				5DFDFDBD246B37B100206265 /* BreedTableViewCell */,
 				5DFDFDB6246B316300206265 /* Struct.swift */,
 				5D8AAE00246C0E3B0028D864 /* Extension.swift */,
@@ -184,6 +187,7 @@
 				5DFDFDB7246B316300206265 /* Struct.swift in Sources */,
 				5DFDFDA2246B2A7E00206265 /* SceneDelegate.swift in Sources */,
 				5D8AAE03246C42910028D864 /* ServerManager.swift in Sources */,
+				5DF872BA246EBF360023F03B /* DetailTableView.swift in Sources */,
 				5D8AAE01246C0E3B0028D864 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

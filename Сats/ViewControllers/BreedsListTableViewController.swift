@@ -17,7 +17,7 @@ class BreedsListTableViewController: UITableViewController {
         
         tableView.register(UINib(nibName: "BreedTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "BreedTableViewCell")
         
-        postAndGetData(url: "https://api.thecatapi.com/v1/breeds?limit=50") { data in
+        postAndGetData(url: "https://api.thecatapi.com/v1/breeds") { data in
 //            let dataString = String(data: data, encoding: .utf8)
 //            print(dataString ?? "")
             if let catBreeds = try? JSONDecoder().decode([CatBreed].self, from: data){
@@ -30,11 +30,7 @@ class BreedsListTableViewController: UITableViewController {
         
     }
     
-
-
-    
-    
-    
+ 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return catBreedsArray.count
     }

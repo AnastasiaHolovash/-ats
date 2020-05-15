@@ -37,41 +37,36 @@ func postAndGetData(url: String, complition: @escaping (Data) -> ()) {
 }
 
 extension UIImageView {
+    
     func loadImageUsingCache(withUrl urlString : String) {
-        
         var imageStringUrl: String?
-//        URL(string: urlString)
-//        if url == nil {return}
         self.image = nil
 
+        // check cached image
+        if let cachedImage = imageCache.object(forKey: urlString as NSString)  {
+            self.image = cachedImage
+            return
+        }
+        
         let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(style: UIActivityIndicatorView.Style.medium)
         addSubview(activityIndicator)
         activityIndicator.startAnimating()
-        activityIndicator.center = self.center
+        activityIndicator.center = CGPoint(x: self.center.x, y: self.center.y * 2.5)
         
+        // if not, download image from url
         postAndGetData(url: urlString) { data in
             let dataString = String(data: data, encoding: .utf8)
             print(dataString ?? "")
             if let breedsWithImage = try? JSONDecoder().decode([ImageAnsver].self, from: data) {
                 imageStringUrl = breedsWithImage[0].url
             }
-            
             if let imageUrl = URL(string: imageStringUrl ?? "") {
-                DispatchQueue.main.async {
-                    // check cached image
-                    if let cachedImage = imageCache.object(forKey: urlString as NSString)  {
-                        self.image = cachedImage
-                        return
-                    }
-                }
-
-                // if not, download image from url
+                
                 URLSession.shared.dataTask(with: imageUrl, completionHandler: { (data, response, error) in
                     if error != nil {
                         print(error!)
                         return
                     }
-
                     DispatchQueue.main.async {
                         if let image = UIImage(data: data!) {
                             imageCache.setObject(image, forKey: urlString as NSString)
@@ -79,14 +74,10 @@ extension UIImageView {
                             activityIndicator.removeFromSuperview()
                         }
                     }
-
                 }).resume()
             }
         }
-        
-        
-        
-        
     }
+    
 }
 

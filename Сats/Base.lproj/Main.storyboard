@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XOZ-rI-H8U">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +11,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="BreedsListTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qKS-EM-k0u" customClass="BreedsListTableViewController" customModule="Сats" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bjo-L3-I9j">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <connections>
@@ -33,7 +33,7 @@
             <objects>
                 <navigationController id="XOZ-rI-H8U" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Zxd-ma-zzw">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -48,24 +48,26 @@
         <scene sceneID="thJ-n6-aqh">
             <objects>
                 <tableViewController storyboardIdentifier="DetailTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="udJ-LW-ABb" customClass="DetailTableViewController" customModule="Сats" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Fiv-ti-1Ki">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Fiv-ti-1Ki" customClass="DetailTableView" customModule="Сats" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="qDh-SU-cUc">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9RM-wb-jZF">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9RM-wb-jZF">
+                                    <rect key="frame" x="0.0" y="-100" width="375" height="450"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="450" identifier="imageViewHeight" id="XV6-1l-d25"/>
+                                    </constraints>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
-                                <constraint firstItem="9RM-wb-jZF" firstAttribute="centerY" secondItem="qDh-SU-cUc" secondAttribute="centerY" id="2Kx-Ry-Df5"/>
-                                <constraint firstAttribute="width" secondItem="9RM-wb-jZF" secondAttribute="width" id="aSD-KF-P20"/>
-                                <constraint firstAttribute="height" secondItem="9RM-wb-jZF" secondAttribute="height" id="lRm-BG-C6O"/>
-                                <constraint firstItem="9RM-wb-jZF" firstAttribute="centerX" secondItem="qDh-SU-cUc" secondAttribute="centerX" id="rIb-b9-EUV"/>
+                                <constraint firstAttribute="bottom" secondItem="9RM-wb-jZF" secondAttribute="bottom" identifier="imageViewBottom" id="8uR-md-KWA"/>
+                                <constraint firstAttribute="trailing" secondItem="9RM-wb-jZF" secondAttribute="trailing" id="g7L-UE-6Na"/>
+                                <constraint firstItem="9RM-wb-jZF" firstAttribute="leading" secondItem="qDh-SU-cUc" secondAttribute="leading" id="lRc-7t-Uuf"/>
                             </constraints>
                         </view>
                         <connections>
