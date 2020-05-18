@@ -3,6 +3,7 @@
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -23,7 +24,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="Obr-8h-rmB"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="udJ-LW-ABb" kind="show" id="Dm8-1a-c3s"/>
+                        <segue destination="udJ-LW-ABb" kind="show" identifier="toDetails" id="Dm8-1a-c3s"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2N2-x9-I8r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -37,7 +38,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Zxd-ma-zzw">
                         <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="qKS-EM-k0u" kind="relationship" relationship="rootViewController" id="y3r-d5-9Mb"/>
@@ -71,10 +72,24 @@
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHB-XT-hre">
                                     <rect key="frame" x="14" y="305" width="353" height="45"/>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUk-hz-oeG">
+                                    <rect key="frame" x="338.66666666666669" y="315" width="28.333333333333314" height="25"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="VUk-hz-oeG" secondAttribute="height" multiplier="25:22" id="YnG-1f-0v3"/>
+                                        <constraint firstAttribute="height" constant="25" id="Yvx-oy-pdV"/>
+                                    </constraints>
+                                    <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <state key="normal" image="arrow.2.circlepath" catalog="system">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="heavy"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="didPressApdateImageButton:" destination="udJ-LW-ABb" eventType="touchUpInside" id="Bs6-4H-Gbc"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
@@ -82,8 +97,10 @@
                                 <constraint firstItem="LHB-XT-hre" firstAttribute="trailing" secondItem="fGD-Cl-cHQ" secondAttribute="trailing" constant="-8" id="4AA-5b-THi"/>
                                 <constraint firstAttribute="bottom" secondItem="9RM-wb-jZF" secondAttribute="bottom" identifier="imageViewBottom" id="8uR-md-KWA"/>
                                 <constraint firstItem="fGD-Cl-cHQ" firstAttribute="height" secondItem="9RM-wb-jZF" secondAttribute="height" multiplier="0.1" id="Ium-ls-G6c"/>
+                                <constraint firstItem="VUk-hz-oeG" firstAttribute="trailing" secondItem="fGD-Cl-cHQ" secondAttribute="trailing" constant="-8" id="ODV-UA-1d0"/>
                                 <constraint firstItem="LHB-XT-hre" firstAttribute="height" secondItem="fGD-Cl-cHQ" secondAttribute="height" id="Uwt-d8-02i"/>
                                 <constraint firstItem="LHB-XT-hre" firstAttribute="leading" secondItem="fGD-Cl-cHQ" secondAttribute="leading" constant="14" id="VAA-lb-5Gv"/>
+                                <constraint firstItem="VUk-hz-oeG" firstAttribute="centerY" secondItem="fGD-Cl-cHQ" secondAttribute="centerY" id="bKh-Co-w9n"/>
                                 <constraint firstItem="LHB-XT-hre" firstAttribute="bottom" secondItem="fGD-Cl-cHQ" secondAttribute="bottom" id="bge-Vs-mmg"/>
                                 <constraint firstItem="fGD-Cl-cHQ" firstAttribute="bottom" secondItem="9RM-wb-jZF" secondAttribute="bottom" id="cJ1-Np-cDU"/>
                                 <constraint firstAttribute="trailing" secondItem="9RM-wb-jZF" secondAttribute="trailing" id="g7L-UE-6Na"/>
@@ -101,11 +118,46 @@
                         <outlet property="catImageView" destination="9RM-wb-jZF" id="45D-K0-nVe"/>
                         <outlet property="headerView" destination="qDh-SU-cUc" id="AgM-iw-cjZ"/>
                         <outlet property="nameLabel" destination="LHB-XT-hre" id="gQC-nT-RWl"/>
+                        <outlet property="updateImageButton" destination="VUk-hz-oeG" id="Bdh-2A-bax"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ag0-eA-cfA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="397.60000000000002" y="191.37931034482759"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="TsG-cw-66O">
+            <objects>
+                <viewController id="hOH-GV-HK9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ue4-u9-B9w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXO-Nb-RdO">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="TXO-Nb-RdO" firstAttribute="top" secondItem="9HD-xy-ODo" secondAttribute="top" id="2KY-4J-96R"/>
+                            <constraint firstItem="TXO-Nb-RdO" firstAttribute="leading" secondItem="9HD-xy-ODo" secondAttribute="leading" id="kgZ-RN-h7s"/>
+                            <constraint firstItem="TXO-Nb-RdO" firstAttribute="bottom" secondItem="9HD-xy-ODo" secondAttribute="bottom" id="lhB-me-vKR"/>
+                            <constraint firstItem="9HD-xy-ODo" firstAttribute="trailing" secondItem="TXO-Nb-RdO" secondAttribute="trailing" id="ySm-df-psE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9HD-xy-ODo"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cHr-58-Nce" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1188" y="191.37931034482759"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="arrow.2.circlepath" catalog="system" width="128" height="101"/>
+    </resources>
 </document>

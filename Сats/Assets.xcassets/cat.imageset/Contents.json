@@ -6,12 +6,45 @@
       "scale" : "1x"
     },
     {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "icons8-профиль-кошки-100-2.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
       "filename" : "icons8-профиль-кошки-100.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "icons8-профиль-кошки-100-3.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
       "filename" : "icons8-профиль-кошки-102.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "icons8-профиль-кошки-100-4.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

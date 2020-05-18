@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DetailTableViewDelegate {
-    func setTitle()
+    func setTitle(_ needSetTitle: Bool)
 }
 
 class DetailTableView: UITableView {
@@ -18,6 +18,8 @@ class DetailTableView: UITableView {
 
     var imageViewHeight: NSLayoutConstraint?
     var imageViewBottom: NSLayoutConstraint?
+    
+    var isSetTitle: Bool = false
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -29,8 +31,13 @@ class DetailTableView: UITableView {
         }
         
         let offsetY = -contentOffset.y
-        if offsetY == -263.0 {
-            mydelegate?.setTitle()
+//        print(offsetY)
+        if (offsetY > -263.0) && isSetTitle {
+            isSetTitle = false
+            mydelegate?.setTitle(false)
+        } else if (offsetY < -263.0) && !isSetTitle {
+            isSetTitle = true
+            mydelegate?.setTitle(true)
         }
         
         imageViewBottom?.constant = offsetY >= 0 ? 0 : offsetY / 2

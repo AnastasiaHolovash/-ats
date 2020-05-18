@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -38,6 +38,7 @@
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cat" translatesAutoresizingMaskIntoConstraints="NO" id="YV0-AR-L30">
                         <rect key="frame" x="8" y="0.0" width="42" height="42"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="YV0-AR-L30" secondAttribute="height" multiplier="1:1" id="vRL-Q9-UYb"/>
                         </constraints>
@@ -62,13 +63,14 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="detailLabel" destination="0x1-OC-jik" id="pdh-QN-ian"/>
+                <outlet property="imageView" destination="YV0-AR-L30" id="J4D-sF-l5q"/>
                 <outlet property="nameLabel" destination="4VG-uC-HPW" id="B3t-wV-xEc"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="128.57142857142856"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="cat" width="100" height="100"/>
+        <image name="cat" width="50" height="50"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
     </resources>
 </document>
