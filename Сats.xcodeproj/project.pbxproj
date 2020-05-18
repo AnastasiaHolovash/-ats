@@ -11,6 +11,8 @@
 		5D8AAE01246C0E3B0028D864 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AAE00246C0E3B0028D864 /* Extension.swift */; };
 		5D8AAE03246C42910028D864 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AAE02246C42910028D864 /* ServerManager.swift */; };
 		5DF872BA246EBF360023F03B /* DetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF872B9246EBF360023F03B /* DetailTableView.swift */; };
+		5DF872BE2472C0BA0023F03B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF872BD2472C0BA0023F03B /* WebViewController.swift */; };
+		5DF872C124730CC90023F03B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF872C024730CC80023F03B /* WebKit.framework */; };
 		5DFDFDA0246B2A7E00206265 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDFD9F246B2A7E00206265 /* AppDelegate.swift */; };
 		5DFDFDA2246B2A7E00206265 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDFDA1246B2A7E00206265 /* SceneDelegate.swift */; };
 		5DFDFDA4246B2A7E00206265 /* BreedsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDFDA3246B2A7E00206265 /* BreedsListTableViewController.swift */; };
@@ -28,6 +30,8 @@
 		5D8AAE00246C0E3B0028D864 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		5D8AAE02246C42910028D864 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
 		5DF872B9246EBF360023F03B /* DetailTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableView.swift; sourceTree = "<group>"; };
+		5DF872BD2472C0BA0023F03B /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		5DF872C024730CC80023F03B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		5DFDFD9C246B2A7E00206265 /* Сats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Сats.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DFDFD9F246B2A7E00206265 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DFDFDA1246B2A7E00206265 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,17 +51,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DF872C124730CC90023F03B /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5DF872BF24730CC70023F03B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5DF872C024730CC80023F03B /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5DFDFD93246B2A7E00206265 = {
 			isa = PBXGroup;
 			children = (
 				5DFDFD9E246B2A7E00206265 /* Сats */,
 				5DFDFD9D246B2A7E00206265 /* Products */,
+				5DF872BF24730CC70023F03B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +108,7 @@
 			children = (
 				5DFDFDA3246B2A7E00206265 /* BreedsListTableViewController.swift */,
 				5D8AADFE246BFE300028D864 /* DetailTableViewController.swift */,
+				5DF872BD2472C0BA0023F03B /* WebViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -180,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D8AADFF246BFE300028D864 /* DetailTableViewController.swift in Sources */,
+				5DF872BE2472C0BA0023F03B /* WebViewController.swift in Sources */,
 				5DFDFDBB246B379D00206265 /* BreedTableViewCell.swift in Sources */,
 				5DFDFDAA246B2A7F00206265 /* _ats.xcdatamodeld in Sources */,
 				5DFDFDA4246B2A7E00206265 /* BreedsListTableViewController.swift in Sources */,

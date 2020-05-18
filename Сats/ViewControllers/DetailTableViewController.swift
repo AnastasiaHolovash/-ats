@@ -16,8 +16,10 @@ class DetailTableViewController: UITableViewController, DetailTableViewDelegate 
     @IBOutlet weak var catImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var updateImageButton: UIButton!
+    
     public var breed: CatBreed?
     private var breedArray: [[String]] = [[], []]
+    private var urls: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,16 +57,13 @@ class DetailTableViewController: UITableViewController, DetailTableViewDelegate 
         if let breed = breed {
             breedArray[0].append("Id: \(breed.id)")
             breedArray[0].append("Name: \(breed.name)")
-            breedArray[1].append("Cfa URL: \(breed.cfaURL ?? "-")")
-            breedArray[1].append("Vetstreet URL: \(String(describing: breed.vetstreetURL ?? "-"))")
-            breedArray[1].append("Vcahospitals URL: \(String(describing: breed.vcahospitalsURL ?? "-"))")
             breedArray[0].append("Temperament: \(breed.temperament)")
             breedArray[0].append("Origin: \(breed.origin)")
             breedArray[0].append("CountryCodes: \(breed.countryCodes)")
             breedArray[0].append("Purple Description: \(breed.purpleDescription)")
             breedArray[0].append("Life Span: \(breed.lifeSpan)")
             breedArray[0].append("Indoor: \(breed.indoor)")
-            breedArray[0].append("Lap: \(nilChack(breed.lap))")
+            breedArray[0].append("Lap: \(nilCheck(breed.lap))")
             breedArray[0].append("AltNames: \(String(describing: breed.altNames ?? "-"))")
             breedArray[0].append("Adaptability: \(breed.adaptability)")
             breedArray[0].append("Weight: \(breed.weight.metric)")
@@ -87,24 +86,34 @@ class DetailTableViewController: UITableViewController, DetailTableViewDelegate 
             breedArray[0].append("Rex: \(breed.rex)")
             breedArray[0].append("Suppressed Tail: \(breed.suppressedTail)")
             breedArray[0].append("Short Legs: \(breed.shortLegs)")
-            breedArray[1].append("Wikipedia URL: \(String(describing: breed.wikipediaURL ?? "-"))")
             breedArray[0].append("Hypoallergenic: \(breed.hypoallergenic)")
-            breedArray[0].append("Cat Friendly: \(nilChack(breed.catFriendly))")
-            breedArray[0].append("Bidability: \(nilChack(breed.bidability))")
+            breedArray[0].append("Cat Friendly: \(nilCheck(breed.catFriendly))")
+            breedArray[0].append("Bidability: \(nilCheck(breed.bidability))")
+            
+            emptyURLsCheck(breed.cfaURL, urlName: "Cfa")
+            emptyURLsCheck(breed.vetstreetURL, urlName: "Vetstreet")
+            emptyURLsCheck(breed.vcahospitalsURL, urlName: "Vcahospitals")
+            emptyURLsCheck(breed.wikipediaURL, urlName: "Wikipedia")
         }
         
     }
     
-    func nilChack(_ intData: Int?) -> String {
+    func nilCheck(_ intData: Int?) -> String {
         if let intData = intData {
             return String(intData)
         } else {
             return "There is no such information."
         }
     }
+    func emptyURLsCheck(_ urlData: String?, urlName: String) {
+        if let urlData = urlData {
+            breedArray[1].append("\(urlName)")
+            urls.append(urlData)
+        }
+    }
     
     
-    @IBAction func didPressApdateImageButton(_ sender: UIButton) {
+    @IBAction func didPressUpdateImageButton(_ sender: UIButton) {
         if let breed = breed {
             catImageView.loadImageUsingCache(withUrl: "https://api.thecatapi.com/v1/images/search?breed_id=\(breed.id)")
         }
@@ -117,7 +126,7 @@ class DetailTableViewController: UITableViewController, DetailTableViewDelegate 
         case 0:
             return "Information"
         case 1:
-            return "URLs"
+            return "More info:"
         default:
             return ""
         }
@@ -134,9 +143,27 @@ class DetailTableViewController: UITableViewController, DetailTableViewDelegate 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
         cell.textLabel?.numberOfLines = 10
+        if indexPath.section == 1 {
+            cell.textLabel?.textColor = .systemBlue
+            cell.textLabel?.textAlignment = .center
+        }
         cell.textLabel?.text = breedArray[indexPath.section][indexPath.row]
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            guard let webVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "WebViewController") as? WebViewController else { return }
+            
+            webVC.urlString = urls[indexPath.row]
+            
+            let navigationC = UINavigationController()
+            navigationC.viewControllers = [webVC]
+            
+            present(navigationC, animated: true, completion: nil)
+        }
+    }
 
+    
 }

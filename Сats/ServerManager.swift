@@ -24,8 +24,8 @@ func postAndGetData(url: String, complition: @escaping (Data) -> ()) {
         if (error != nil) {
             print(error ?? "")
         } else {
-            let httpResponse = response as? HTTPURLResponse
-            print(httpResponse ?? "")
+            _ = response as? HTTPURLResponse
+//            print(httpResponse ?? "")
         }
         
         if let data = data {

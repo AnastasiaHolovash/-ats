@@ -87,7 +87,7 @@
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="heavy"/>
                                     </state>
                                     <connections>
-                                        <action selector="didPressApdateImageButton:" destination="udJ-LW-ABb" eventType="touchUpInside" id="Bs6-4H-Gbc"/>
+                                        <action selector="didPressUpdateImageButton:" destination="udJ-LW-ABb" eventType="touchUpInside" id="Bs6-4H-Gbc"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -125,10 +125,10 @@
             </objects>
             <point key="canvasLocation" x="397.60000000000002" y="191.37931034482759"/>
         </scene>
-        <!--View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="TsG-cw-66O">
             <objects>
-                <viewController id="hOH-GV-HK9" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebViewController" id="hOH-GV-HK9" customClass="WebViewController" customModule="Сats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ue4-u9-B9w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,6 +151,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9HD-xy-ODo"/>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="TXO-Nb-RdO" id="QHc-2z-8Lb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHr-58-Nce" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
