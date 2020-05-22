@@ -76,3 +76,9 @@ struct CatBreed: Codable {
 struct Weight: Codable {
     let imperial, metric: String
 }
+
+struct QuizResult: Codable {
+    let numberOfQuestions: Int
+    let numberRightAnswers: Int
+    let executionTime: Int
+}

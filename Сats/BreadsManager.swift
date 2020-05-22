@@ -10,8 +10,23 @@ import UIKit
 
 class BreadsManager {
     
-    var breedsArray: [CatBreed] = []
-    
     static let shared = BreadsManager()
     
+    var breedsArray: [CatBreed] = []
+    
+    var quizResult: [QuizResult] {
+        get {
+            if let data = UserDefaults.standard.data(forKey: "QuizResult") {
+                let decoder = JSONDecoder()
+                return (try? decoder.decode([QuizResult].self, from: data)) ?? []
+            } else {
+                return []
+            }
+        }
+        set {
+            let encoder = JSONEncoder()
+            let data = try? encoder.encode(newValue)
+            UserDefaults.standard.set(data, forKey: "QuizResult")
+        }
+    }
 }

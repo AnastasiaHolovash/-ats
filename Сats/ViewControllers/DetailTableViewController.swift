@@ -10,29 +10,33 @@ import UIKit
 
 class DetailTableViewController: UITableViewController, DetailTableViewDelegate {
     
-    
-
-    @IBOutlet weak var headerView: UIView!
+//    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var catImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var updateImageButton: UIButton!
     
+    // Variables
+    
+    /// Breed which is shown
     public var breed: CatBreed?
+    /// Array with breed information with String type
     private var breedArray: [[String]] = [[], []]
+    /// Array with URLs with sites with information about breed
     private var urls: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // DetailTableViewDelegate
         guard let customTV = self.tableView as? DetailTableView else { return }
-        customTV.mydelegate = self
+        customTV.detailTableViewDelegate = self
 
         nameLabel.text = breed?.name
-//        self.title = breed?.name
         createBreedArray()
         setImage()
     }
     
+    // DetailTableViewDelegate
     func setTitle(_ needSetTitle: Bool) {
         if needSetTitle {
             self.title = breed?.name
@@ -49,7 +53,7 @@ class DetailTableViewController: UITableViewController, DetailTableViewDelegate 
                 return
             }
             // if not, download image from url
-            catImageView.loadImageUsingCache(withUrl: "https://api.thecatapi.com/v1/images/search?breed_id=\(breed.id)")
+            catImageView.loadImage(withUrl: "https://api.thecatapi.com/v1/images/search?breed_id=\(breed.id)", addImageToCache: true)
         }
     }
     
@@ -115,7 +119,7 @@ class DetailTableViewController: UITableViewController, DetailTableViewDelegate 
     
     @IBAction func didPressUpdateImageButton(_ sender: UIButton) {
         if let breed = breed {
-            catImageView.loadImageUsingCache(withUrl: "https://api.thecatapi.com/v1/images/search?breed_id=\(breed.id)")
+            catImageView.loadImage(withUrl: "https://api.thecatapi.com/v1/images/search?breed_id=\(breed.id)", addImageToCache: true)
         }
     }
     

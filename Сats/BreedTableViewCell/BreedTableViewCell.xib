@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -43,6 +43,16 @@
                             <constraint firstAttribute="width" secondItem="YV0-AR-L30" secondAttribute="height" multiplier="1:1" id="vRL-Q9-UYb"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7aq-3J-elR">
+                        <rect key="frame" x="8" y="2" width="38" height="38"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="7aq-3J-elR" secondAttribute="height" multiplier="1:1" id="pCy-HK-cPy"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="zm7-Qq-zDD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="4Jz-jx-av9"/>
@@ -50,6 +60,8 @@
                     <constraint firstItem="0x1-OC-jik" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="1.4" id="8jN-TZ-5kr"/>
                     <constraint firstItem="0x1-OC-jik" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.35" id="Gfj-za-bO3"/>
                     <constraint firstItem="YV0-AR-L30" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" id="LZb-Jz-p8S"/>
+                    <constraint firstAttribute="bottom" secondItem="7aq-3J-elR" secondAttribute="bottom" constant="2" id="QNN-Xj-t8N"/>
+                    <constraint firstItem="7aq-3J-elR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="Tcn-6e-mKg"/>
                     <constraint firstItem="4VG-uC-HPW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.6" id="YOL-FG-JWK"/>
                     <constraint firstAttribute="trailing" secondItem="zm7-Qq-zDD" secondAttribute="trailing" id="cnW-6R-5ED"/>
                     <constraint firstItem="0x1-OC-jik" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.7" id="h7z-6z-1hH"/>
@@ -57,16 +69,20 @@
                     <constraint firstItem="YV0-AR-L30" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="kyZ-12-L89"/>
                     <constraint firstItem="0x1-OC-jik" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="1.1" id="ltP-DT-6VK"/>
                     <constraint firstItem="YV0-AR-L30" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rnJ-QO-epg"/>
+                    <constraint firstItem="7aq-3J-elR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="tVv-u7-AyM"/>
                     <constraint firstItem="4VG-uC-HPW" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.7" id="yVe-32-tlO"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="arrowView" destination="zm7-Qq-zDD" id="i80-co-Pxr"/>
                 <outlet property="detailLabel" destination="0x1-OC-jik" id="pdh-QN-ian"/>
                 <outlet property="imageView" destination="YV0-AR-L30" id="J4D-sF-l5q"/>
                 <outlet property="nameLabel" destination="4VG-uC-HPW" id="B3t-wV-xEc"/>
+                <outlet property="roundColorLabel" destination="7aq-3J-elR" id="DcK-m1-5VZ"/>
+                <outlet property="roundImageView" destination="YV0-AR-L30" id="4LV-SV-Xys"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="128.57142857142856"/>
+            <point key="canvasLocation" x="137.68115942028987" y="127.90178571428571"/>
         </tableViewCell>
     </objects>
     <resources>

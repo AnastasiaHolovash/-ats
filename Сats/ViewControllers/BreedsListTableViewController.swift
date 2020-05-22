@@ -10,48 +10,56 @@ import UIKit
 
 class BreedsListTableViewController: UITableViewController {
     
-    public var catBreedsArray: [CatBreed] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Castom Cell register
         tableView.register(UINib(nibName: "BreedTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "BreedTableViewCell")
         
-        postAndGetData(url: "https://api.thecatapi.com/v1/breeds") { data in
-//            let dataString = String(data: data, encoding: .utf8)
-//            print(dataString ?? "")
+        getData(url: "https://api.thecatapi.com/v1/breeds") { data in
+            
+            // Uncomment to print all returned data
+            
+            // let dataString = String(data: data, encoding: .utf8)
+            // print(dataString ?? "")
+            
+            // Casting returned as CatBreed array
             if let catBreeds = try? JSONDecoder().decode([CatBreed].self, from: data){
-                self.catBreedsArray = catBreeds
+                // Sets data to the Singleton
                 BreadsManager.shared.breedsArray = catBreeds
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
             }
         }
-        
     }
     
- 
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return catBreedsArray.count
+        return BreadsManager.shared.breedsArray.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BreedTableViewCell", for: indexPath) as! BreedTableViewCell
-        
-        let breed = catBreedsArray[indexPath.row]
+        // Gets one breed by index
+        let breed = BreadsManager.shared.breedsArray[indexPath.row]
         cell.nameLabel.text = breed.name
         cell.detailLabel.text = "Origin: " + breed.origin
+        cell.arrowView.isHidden = false
+        cell.roundImageView.isHidden = false
+        cell.roundColorLabel.isHidden = true
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        // Creates a ViewController with type DetailTableViewController
         guard let detailVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailTableViewController") as? DetailTableViewController else { return }
-        detailVC.breed = self.catBreedsArray[indexPath.row]
+        // Shares one breed data
+        detailVC.breed = BreadsManager.shared.breedsArray[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: true)
+        // Shows DetailTableViewController
         self.navigationController?.pushViewController(detailVC, animated: true)
         
     }

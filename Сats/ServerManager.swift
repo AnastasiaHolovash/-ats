@@ -10,7 +10,17 @@ import UIKit
 
 let imageCache = NSCache<NSString, UIImage>()
 
-func postAndGetData(url: String, complition: @escaping (Data) -> ()) {
+
+/**
+ Gets an array with all breeds of cats from server.
+ - Parameters:
+    - url: string with URL for request;
+    - complition: complition bloc for processing returned data.
+ 
+ - Request http Method: GET.
+ - Uses HTTP Header Field.
+ */
+func getData(url: String, complition: @escaping (Data) -> ()) {
     
     let url = URL(string: url)!
     var request = URLRequest(url: url)
@@ -25,7 +35,6 @@ func postAndGetData(url: String, complition: @escaping (Data) -> ()) {
             print(error ?? "")
         } else {
             _ = response as? HTTPURLResponse
-//            print(httpResponse ?? "")
         }
         
         if let data = data {
@@ -36,18 +45,30 @@ func postAndGetData(url: String, complition: @escaping (Data) -> ()) {
     dataTask.resume()
 }
 
+
 extension UIImageView {
+    /**
+    Sets pictute to image view.
+    - Parameters:
+       - urlString: string with URL for get one breed by URL Request;
+       - addImageToCache: true if need to add a picture to the cache.
     
-    func loadImageUsingCache(withUrl urlString : String) {
+    Shows activity indicator while the picture loads.
+    */
+    func loadImage(withUrl urlString : String, addImageToCache: Bool) {
         var imageStringUrl: String?
         self.image = nil
         
         let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(style: UIActivityIndicatorView.Style.medium)
         addSubview(activityIndicator)
         activityIndicator.startAnimating()
-        activityIndicator.center = CGPoint(x: self.center.x, y: self.center.y * 2.5)
+        var activityIndicatorChangeY: CGFloat = 0.5
+        if addImageToCache {
+            activityIndicatorChangeY = 2.5
+        }
+        activityIndicator.center = CGPoint(x: self.center.x, y: self.center.y * activityIndicatorChangeY)
         
-        postAndGetData(url: urlString) { data in
+        getData(url: urlString) { data in
 //            let dataString = String(data: data, encoding: .utf8)
 //            print(dataString ?? "")
             if let breedsWithImage = try? JSONDecoder().decode([ImageAnsver].self, from: data) {
@@ -62,7 +83,9 @@ extension UIImageView {
                     }
                     DispatchQueue.main.async {
                         if let image = UIImage(data: data!) {
-                            imageCache.setObject(image, forKey: urlString as NSString)
+                            if addImageToCache {
+                                imageCache.setObject(image, forKey: urlString as NSString)
+                            }
                             self.image = image
                             activityIndicator.removeFromSuperview()
                         }
@@ -71,6 +94,6 @@ extension UIImageView {
             }
         }
     }
-    
+        
 }
 
