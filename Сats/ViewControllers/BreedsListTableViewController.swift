@@ -10,7 +10,7 @@ import UIKit
 
 class BreedsListTableViewController: UITableViewController {
     
-    private var catBreedsArray: [CatBreed] = []
+    public var catBreedsArray: [CatBreed] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,7 @@ class BreedsListTableViewController: UITableViewController {
 //            print(dataString ?? "")
             if let catBreeds = try? JSONDecoder().decode([CatBreed].self, from: data){
                 self.catBreedsArray = catBreeds
+                BreadsManager.shared.breedsArray = catBreeds
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }

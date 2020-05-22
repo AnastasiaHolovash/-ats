@@ -10,6 +10,9 @@
 		5D8AADFF246BFE300028D864 /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AADFE246BFE300028D864 /* DetailTableViewController.swift */; };
 		5D8AAE01246C0E3B0028D864 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AAE00246C0E3B0028D864 /* Extension.swift */; };
 		5D8AAE03246C42910028D864 /* ServerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AAE02246C42910028D864 /* ServerManager.swift */; };
+		5DC824B624771628005968E7 /* NumberChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC824B524771628005968E7 /* NumberChooseViewController.swift */; };
+		5DC824B8247716CF005968E7 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC824B7247716CF005968E7 /* QuizViewController.swift */; };
+		5DC824BA247722B8005968E7 /* BreadsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC824B9247722B8005968E7 /* BreadsManager.swift */; };
 		5DF872BA246EBF360023F03B /* DetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF872B9246EBF360023F03B /* DetailTableView.swift */; };
 		5DF872BE2472C0BA0023F03B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF872BD2472C0BA0023F03B /* WebViewController.swift */; };
 		5DF872C124730CC90023F03B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF872C024730CC80023F03B /* WebKit.framework */; };
@@ -29,6 +32,9 @@
 		5D8AADFE246BFE300028D864 /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 		5D8AAE00246C0E3B0028D864 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		5D8AAE02246C42910028D864 /* ServerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerManager.swift; sourceTree = "<group>"; };
+		5DC824B524771628005968E7 /* NumberChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberChooseViewController.swift; sourceTree = "<group>"; };
+		5DC824B7247716CF005968E7 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		5DC824B9247722B8005968E7 /* BreadsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreadsManager.swift; sourceTree = "<group>"; };
 		5DF872B9246EBF360023F03B /* DetailTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableView.swift; sourceTree = "<group>"; };
 		5DF872BD2472C0BA0023F03B /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		5DF872C024730CC80023F03B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -89,6 +95,7 @@
 				5DFDFD9F246B2A7E00206265 /* AppDelegate.swift */,
 				5DFDFDA1246B2A7E00206265 /* SceneDelegate.swift */,
 				5D8AAE02246C42910028D864 /* ServerManager.swift */,
+				5DC824B9247722B8005968E7 /* BreadsManager.swift */,
 				5DFDFDB8246B36F500206265 /* ViewControllers */,
 				5DFDFDA5246B2A7F00206265 /* Main.storyboard */,
 				5DF872B9246EBF360023F03B /* DetailTableView.swift */,
@@ -109,6 +116,8 @@
 				5DFDFDA3246B2A7E00206265 /* BreedsListTableViewController.swift */,
 				5D8AADFE246BFE300028D864 /* DetailTableViewController.swift */,
 				5DF872BD2472C0BA0023F03B /* WebViewController.swift */,
+				5DC824B524771628005968E7 /* NumberChooseViewController.swift */,
+				5DC824B7247716CF005968E7 /* QuizViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -194,13 +203,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DC824BA247722B8005968E7 /* BreadsManager.swift in Sources */,
 				5D8AADFF246BFE300028D864 /* DetailTableViewController.swift in Sources */,
 				5DF872BE2472C0BA0023F03B /* WebViewController.swift in Sources */,
 				5DFDFDBB246B379D00206265 /* BreedTableViewCell.swift in Sources */,
 				5DFDFDAA246B2A7F00206265 /* _ats.xcdatamodeld in Sources */,
+				5DC824B624771628005968E7 /* NumberChooseViewController.swift in Sources */,
 				5DFDFDA4246B2A7E00206265 /* BreedsListTableViewController.swift in Sources */,
 				5DFDFDA0246B2A7E00206265 /* AppDelegate.swift in Sources */,
 				5DFDFDB7246B316300206265 /* Struct.swift in Sources */,
+				5DC824B8247716CF005968E7 /* QuizViewController.swift in Sources */,
 				5DFDFDA2246B2A7E00206265 /* SceneDelegate.swift in Sources */,
 				5D8AAE03246C42910028D864 /* ServerManager.swift in Sources */,
 				5DF872BA246EBF360023F03B /* DetailTableView.swift in Sources */,
