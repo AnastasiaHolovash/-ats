@@ -19,6 +19,7 @@ class QuizViewController: UIViewController {
     var rightAnswerPlacement: Int = 0
     var numberOfRightAnsvers: Int = 0
     var selectedAnswerButton: Int = 0
+    var quizTime: TimeInterval = TimeInterval()
     
     var answerButtons: [UIButton] = []
     
@@ -34,13 +35,17 @@ class QuizViewController: UIViewController {
         nextButton.setTitle("Ansver", for: .normal)
         nextButton.layer.cornerRadius = CGFloat(Double(nextButton.frame.height) / 3.5)
         
-        rabdomPicture()
+        randomPicture()
     }
-        
+    
+    override func viewDidAppear(_ animated: Bool) {
+        quizTime = Date().timeIntervalSince1970
+    }
     
     @IBAction func didPressAnswerButton(_ sender: UIButton) {
         clearAnswerButtonsColor()
         answerButtons[sender.tag - 1].backgroundColor = .systemOrange
+        answerButtons[sender.tag - 1].setTitleColor(.white, for: .normal)
         selectedAnswerButton = sender.tag
         nextButton.backgroundColor = .systemIndigo
         nextButton.isEnabled = true
@@ -59,10 +64,13 @@ class QuizViewController: UIViewController {
         if tag == rightAnswerPlacement {
             numberOfRightAnsvers += 1
             answerButton.backgroundColor = .systemGreen
+            answerButton.setTitleColor(.white, for: .normal)
         } else {
             answerButton.backgroundColor = .systemRed
+            answerButton.setTitleColor(.white, for: .normal)
             answerButton = answerButtons[rightAnswerPlacement - 1]
             answerButton.backgroundColor = .systemGreen
+            answerButton.setTitleColor(.white, for: .normal)
         }
         isEnabledAnswerButtons(false)
     }
@@ -86,12 +94,13 @@ class QuizViewController: UIViewController {
             nextButton.backgroundColor = .lightGray
             nextButton.setTitle("Ansver", for: .normal)
             isEnabledAnswerButtons(true)
-            rabdomPicture()
+            randomPicture()
             clearAnswerButtonsColor()
         } else {
             let alert = UIAlertController(title: "Congratulations!", message: "You gave \(numberOfRightAnsvers)/\(numberOfQuestions) correct answers", preferredStyle: .alert)
             let okButton = UIAlertAction(title: "OK", style: .default) { (handler) in
                 DispatchQueue.main.async {
+                    self.quizTime = Date().timeIntervalSince1970 - self.quizTime
                     self.apdateResults()
                     self.navigationController?.popViewController(animated: true)
                 }
@@ -102,7 +111,7 @@ class QuizViewController: UIViewController {
     }
     
     func apdateResults() {
-        let result = QuizResult(numberOfQuestions: numberOfQuestions, numberRightAnswers: numberOfRightAnsvers, executionTime: 0)
+        let result = QuizResult(numberOfQuestions: numberOfQuestions, numberRightAnswers: numberOfRightAnsvers, executionTime: Int(quizTime))
         var allResults = BreadsManager.shared.quizResult
         allResults.append(result)
         BreadsManager.shared.quizResult = allResults
@@ -113,7 +122,7 @@ class QuizViewController: UIViewController {
      
      Also controls label which shows how many answers have already been given.
      */
-    func rabdomPicture() {
+    func randomPicture() {
         
         curentNumberLabel.text = "\(questionCurentNumber)/\(numberOfQuestions)"
         var otherCatsNames: [String] = []
@@ -146,12 +155,13 @@ class QuizViewController: UIViewController {
     func clearAnswerButtonsColor() {
         for button in answerButtons {
             button.backgroundColor = .white
+            button.setTitleColor(.black, for: .normal)
         }
     }
     /// Sets Answer Buttons disable
     func isEnabledAnswerButtons(_ isEnabled: Bool) {
         for button in answerButtons {
-            button.isEnabled = isEnabled
+            button.isUserInteractionEnabled = isEnabled
         }
     }
     

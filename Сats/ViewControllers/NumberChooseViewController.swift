@@ -59,7 +59,7 @@ class NumberChooseViewController: UIViewController, UITableViewDelegate, UITable
         // Gets one result by index
         let oneResult = allResults[indexPath.row]
         cell.nameLabel.text = "\(oneResult.numberRightAnswers) / \(oneResult.numberOfQuestions)"
-        cell.detailLabel.text = "time"
+        cell.detailLabel.text = "\(oneResult.executionTime)"
         cell.arrowView.isHidden = true
         cell.roundImageView.isHidden = true
         cell.roundColorLabel.isHidden = false

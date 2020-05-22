@@ -46,8 +46,8 @@
             filePath = "&#x421;ats/ViewControllers/QuizViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "didPressAnswerButton(_:)"
             landmarkType = "7">
          </BreakpointContent>

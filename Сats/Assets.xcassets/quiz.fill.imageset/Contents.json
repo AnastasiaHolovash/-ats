@@ -1,12 +1,10 @@
 {
   "images" : [
     {
-      "filename" : "icons8-задать-вопрос-90.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icons8-задать-вопрос-91.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
