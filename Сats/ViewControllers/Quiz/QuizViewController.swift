@@ -9,6 +9,7 @@
 import UIKit
 
 class QuizViewController: UIViewController {
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var curentNumberLabel: UILabel!
@@ -17,35 +18,44 @@ class QuizViewController: UIViewController {
     var numberOfQuestions: Int = 0
     var questionCurentNumber: Int = 1
     var rightAnswerPlacement: Int = 0
-    var numberOfRightAnsvers: Int = 0
+    var numberOfRightAnswers: Int = 0
     var selectedAnswerButton: Int = 0
     var quizTime: TimeInterval = TimeInterval()
     
+    /// Buttons that the user presses to give an answer
     var answerButtons: [UIButton] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Creating Answer Buttons using tags
         var answerButton = UIButton()
         for i in 1...4 {
             answerButton = view.viewWithTag(i) as! UIButton
             answerButton.layer.cornerRadius = CGFloat(Double(answerButton.frame.height) / 3.5)
             answerButtons.append(answerButton)
         }
-        nextButton.setTitle("Ansver", for: .normal)
+        // Setup Next Button
+        nextButton.setTitle("Answer", for: .normal)
+        nextButton.isEnabled = false
+        nextButton.backgroundColor = .lightGray
         nextButton.layer.cornerRadius = CGFloat(Double(nextButton.frame.height) / 3.5)
         
         randomPicture()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        // Quiz start time
         quizTime = Date().timeIntervalSince1970
     }
     
     @IBAction func didPressAnswerButton(_ sender: UIButton) {
         clearAnswerButtonsColor()
+        // Mark the selected button with orage color
         answerButtons[sender.tag - 1].backgroundColor = .systemOrange
         answerButtons[sender.tag - 1].setTitleColor(.white, for: .normal)
+        // Enable Next Button after User selected the answer
         selectedAnswerButton = sender.tag
         nextButton.backgroundColor = .systemIndigo
         nextButton.isEnabled = true
@@ -58,11 +68,11 @@ class QuizViewController: UIViewController {
     If wrong sets red  and show correct answer highlighting it in green.
     */
     func showTheCorrectAnswer(tag: Int) {
-//        var answerButton = UIButton()
+        
         var answerButton = answerButtons[tag - 1]
         
         if tag == rightAnswerPlacement {
-            numberOfRightAnsvers += 1
+            numberOfRightAnswers += 1
             answerButton.backgroundColor = .systemGreen
             answerButton.setTitleColor(.white, for: .normal)
         } else {
@@ -81,27 +91,33 @@ class QuizViewController: UIViewController {
      Shows alert with results and pop ViewController when all questions was shown.
      */
     @IBAction func didPressNextButton(_ sender: UIButton) {
-        if nextButton.titleLabel?.text == "Ansver" {
+        // If title is "Answer" changes it to "Next" or "View results"
+        if nextButton.titleLabel?.text == "Answer" {
             showTheCorrectAnswer(tag: selectedAnswerButton)
-            nextButton.setTitle("Next", for: .normal)
+            if (questionCurentNumber - 1) == numberOfQuestions {
+                nextButton.setTitle("View results", for: .normal)
+            } else {
+                nextButton.setTitle("Next", for: .normal)
+            }
             return
         }
+        // If title is not "Answer" and it was not the last question
         if questionCurentNumber <= numberOfQuestions {
-            if questionCurentNumber == numberOfQuestions {
-                nextButton.setTitle("View results", for: .normal)
-            }
             nextButton.isEnabled = false
             nextButton.backgroundColor = .lightGray
-            nextButton.setTitle("Ansver", for: .normal)
+            nextButton.setTitle("Answer", for: .normal)
             isEnabledAnswerButtons(true)
             randomPicture()
             clearAnswerButtonsColor()
         } else {
-            let alert = UIAlertController(title: "Congratulations!", message: "You gave \(numberOfRightAnsvers)/\(numberOfQuestions) correct answers", preferredStyle: .alert)
+            // If title is not "Answer" and it was the last question
+            // Shows alert with results
+            let alert = UIAlertController(title: "Congratulations!", message: "You gave \(numberOfRightAnswers)/\(numberOfQuestions) correct answers", preferredStyle: .alert)
             let okButton = UIAlertAction(title: "OK", style: .default) { (handler) in
                 DispatchQueue.main.async {
+                    // Calculates quiz execution time
                     self.quizTime = Date().timeIntervalSince1970 - self.quizTime
-                    self.apdateResults()
+                    self.updateResults()
                     self.navigationController?.popViewController(animated: true)
                 }
             }
@@ -110,10 +126,12 @@ class QuizViewController: UIViewController {
         }
     }
     
-    func apdateResults() {
-        let result = QuizResult(numberOfQuestions: numberOfQuestions, numberRightAnswers: numberOfRightAnsvers, executionTime: Int(quizTime))
+    
+    /// Update data in User defaults by using singleton BreadsManager.
+    func updateResults() {
+        let result = QuizResult(numberOfQuestions: numberOfQuestions, numberRightAnswers: numberOfRightAnswers, executionTime: Int(quizTime))
         var allResults = BreadsManager.shared.quizResult
-        allResults.append(result)
+        allResults.insert(result, at: 0)
         BreadsManager.shared.quizResult = allResults
     }
     
@@ -126,7 +144,7 @@ class QuizViewController: UIViewController {
         
         curentNumberLabel.text = "\(questionCurentNumber)/\(numberOfQuestions)"
         var otherCatsNames: [String] = []
-        // right Cat choosing
+        //  right Cat choosing
         guard let rightCat = BreadsManager.shared.breedsArray.randomElement() else { return }
         // sets image of right Cat
         imageView.loadImage(withUrl: "https://api.thecatapi.com/v1/images/search?breed_id=\(rightCat.id)", addImageToCache: false)
@@ -164,7 +182,5 @@ class QuizViewController: UIViewController {
             button.isUserInteractionEnabled = isEnabled
         }
     }
-    
-    
 
 }

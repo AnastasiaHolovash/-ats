@@ -252,7 +252,7 @@
                         <outlet property="button20" destination="OD5-Qa-wGa" id="c7a-AH-9kW"/>
                         <outlet property="button5" destination="648-ks-zHe" id="moI-Xy-K1t"/>
                         <outlet property="tableView" destination="8BO-Xm-KQC" id="qVp-H6-3IC"/>
-                        <segue destination="B4B-oS-1y5" kind="show" id="PPW-wr-nuz"/>
+                        <segue destination="B4B-oS-1y5" kind="show" identifier="toQuizViewController" id="PPW-wr-nuz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyS-pQ-U9r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -270,18 +270,15 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xbT-oi-70B">
                                 <rect key="frame" x="0.0" y="140" width="375" height="342"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="xbT-oi-70B" secondAttribute="height" multiplier="1:1" constant="33" id="drF-7Z-Bcu"/>
-                                </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xeu-18-t1I">
-                                <rect key="frame" x="16" y="500" width="343" height="147"/>
+                                <rect key="frame" x="18.666666666666657" y="500" width="337.66666666666674" height="147"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Snw-j7-Gn5">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="65.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="337.66666666666669" height="65.666666666666671"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="tN6-V7-7TB">
-                                                <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="65.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="161" height="65.666666666666671"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -291,7 +288,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Zre-qW-OcX">
-                                                <rect key="frame" x="179.66666666666663" y="0.0" width="163.33333333333337" height="65.666666666666671"/>
+                                                <rect key="frame" x="177" y="0.0" width="160.66666666666663" height="65.666666666666671"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -303,10 +300,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9ld-Fd-sw8">
-                                        <rect key="frame" x="0.0" y="81.666666666666629" width="343" height="65.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="81.666666666666629" width="337.66666666666669" height="65.333333333333314"/>
                                         <subviews>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="hFE-qU-dfN">
-                                                <rect key="frame" x="0.0" y="0.0" width="163.66666666666666" height="65.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="161" height="65.333333333333329"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -316,7 +313,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Bnc-a8-Vje">
-                                                <rect key="frame" x="179.66666666666663" y="0.0" width="163.33333333333337" height="65.333333333333329"/>
+                                                <rect key="frame" x="177" y="0.0" width="160.66666666666663" height="65.333333333333329"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -330,11 +327,10 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJi-Bu-TDG">
-                                <rect key="frame" x="17.666666666666657" y="664" width="340" height="45"/>
+                                <rect key="frame" x="18.666666666666657" y="664" width="337.66666666666674" height="45"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="LgM-0Z-zwQ"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="340" id="U4m-z4-txU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -347,9 +343,12 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="xbT-oi-70B" firstAttribute="top" secondItem="fn1-LQ-7Bh" secondAttribute="top" id="J5a-ry-fnI"/>
-                            <constraint firstItem="xeu-18-t1I" firstAttribute="width" secondItem="fn1-LQ-7Bh" secondAttribute="width" multiplier="0.914667" id="Nfn-Kf-9hx"/>
+                            <constraint firstItem="xeu-18-t1I" firstAttribute="width" secondItem="fn1-LQ-7Bh" secondAttribute="width" multiplier="0.9" id="Nfn-Kf-9hx"/>
+                            <constraint firstItem="xbT-oi-70B" firstAttribute="width" secondItem="fn1-LQ-7Bh" secondAttribute="width" id="ROh-d3-uwC"/>
+                            <constraint firstItem="bJi-Bu-TDG" firstAttribute="width" secondItem="fn1-LQ-7Bh" secondAttribute="width" multiplier="0.9" id="WyN-Ho-Djd"/>
                             <constraint firstItem="bJi-Bu-TDG" firstAttribute="centerY" secondItem="fn1-LQ-7Bh" secondAttribute="centerY" multiplier="1.58" id="ZMW-sn-6z4"/>
                             <constraint firstItem="xbT-oi-70B" firstAttribute="leading" secondItem="fn1-LQ-7Bh" secondAttribute="leading" id="d3h-Zt-uPX"/>
+                            <constraint firstItem="xbT-oi-70B" firstAttribute="height" secondItem="fn1-LQ-7Bh" secondAttribute="height" multiplier="0.580645" id="dq3-df-0ax"/>
                             <constraint firstItem="bJi-Bu-TDG" firstAttribute="centerX" secondItem="fn1-LQ-7Bh" secondAttribute="centerX" id="evA-pg-OiM"/>
                             <constraint firstItem="fn1-LQ-7Bh" firstAttribute="trailing" secondItem="xbT-oi-70B" secondAttribute="trailing" id="fHd-Xx-hzG"/>
                             <constraint firstItem="xeu-18-t1I" firstAttribute="centerX" secondItem="fn1-LQ-7Bh" secondAttribute="centerX" id="g7q-qt-WnC"/>

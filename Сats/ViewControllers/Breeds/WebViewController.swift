@@ -13,11 +13,12 @@ class WebViewController: UIViewController {
 
     @IBOutlet weak var webView: WKWebView!
     
+    /// A variable that is shared the the View Controller which presents Web View Controller
     public var urlString: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // Loading the web page
         if let url = URL(string: urlString ?? "") {
             let request = URLRequest(url: url)
             webView.load(request)

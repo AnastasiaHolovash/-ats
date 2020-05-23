@@ -10,7 +10,6 @@ import UIKit
 
 class DetailTableViewController: UITableViewController, DetailTableViewDelegate {
     
-//    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var catImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var updateImageButton: UIButton!
@@ -24,10 +23,11 @@ class DetailTableViewController: UITableViewController, DetailTableViewDelegate 
     /// Array with URLs with sites with information about breed
     private var urls: [String] = []
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // DetailTableViewDelegate
+        // Detail table view delegate
         guard let customTV = self.tableView as? DetailTableView else { return }
         customTV.detailTableViewDelegate = self
 
@@ -36,7 +36,7 @@ class DetailTableViewController: UITableViewController, DetailTableViewDelegate 
         setImage()
     }
     
-    // DetailTableViewDelegate
+    // Detail table view delegate
     func setTitle(_ needSetTitle: Bool) {
         if needSetTitle {
             self.title = breed?.name
@@ -45,6 +45,7 @@ class DetailTableViewController: UITableViewController, DetailTableViewDelegate 
         }
     }
 
+    /// Downloads image with the breed that shown from url, if the image for this breed is not yet cached.
     func setImage() {
         if let breed = breed {
             // check cached image
@@ -57,6 +58,11 @@ class DetailTableViewController: UITableViewController, DetailTableViewDelegate 
         }
     }
     
+    /**
+     Creates array with breed information with String type.
+     
+     Separates URL and all information on two parts of the array.
+     */
     func createBreedArray() {
         if let breed = breed {
             breedArray[0].append("Id: \(breed.id)")
@@ -68,7 +74,7 @@ class DetailTableViewController: UITableViewController, DetailTableViewDelegate 
             breedArray[0].append("Life Span: \(breed.lifeSpan)")
             breedArray[0].append("Indoor: \(breed.indoor)")
             breedArray[0].append("Lap: \(nilCheck(breed.lap))")
-            breedArray[0].append("AltNames: \(String(describing: breed.altNames ?? "-"))")
+            breedArray[0].append("AltNames: \(emptyStringCheck(string: breed.altNames))")
             breedArray[0].append("Adaptability: \(breed.adaptability)")
             breedArray[0].append("Weight: \(breed.weight.metric)")
             breedArray[0].append("Adaptability: \(breed.adaptability)")
@@ -102,6 +108,14 @@ class DetailTableViewController: UITableViewController, DetailTableViewDelegate 
         
     }
     
+    /**
+     Check if data with Int type is not nil.
+     - Parameters:
+        - intData: data with Int type.
+     - Returns:
+        - Data converted to String type if data is not nil.
+        - "There is no such information." if data is nil.
+     */
     func nilCheck(_ intData: Int?) -> String {
         if let intData = intData {
             return String(intData)
@@ -109,6 +123,15 @@ class DetailTableViewController: UITableViewController, DetailTableViewDelegate 
             return "There is no such information."
         }
     }
+    
+    /**
+    Check if URL string is not nil.
+    - Parameters:
+       - urlData: srting with URL.
+       - urlName: information about which web page is the URL from.
+    
+     Add urlData to array with all URLs and urlName to array with breed information with String type.
+    */
     func emptyURLsCheck(_ urlData: String?, urlName: String) {
         if let urlData = urlData {
             breedArray[1].append("\(urlName)")
@@ -116,20 +139,39 @@ class DetailTableViewController: UITableViewController, DetailTableViewDelegate 
         }
     }
     
+    /**
+    Check if data with srting type is not nil.
+    - Parameters:
+       - string: data with srting type.
+    - Returns:
+       - string if data is not nil.
+       - "-" if data is nil.
+    */
+    func emptyStringCheck(string: String?) -> String {
+        if let string = string {
+            return string
+        } else {
+            return "-"
+        }
+    }
     
     @IBAction func didPressUpdateImageButton(_ sender: UIButton) {
         if let breed = breed {
+            // download image from url
             catImageView.loadImage(withUrl: "https://api.thecatapi.com/v1/images/search?breed_id=\(breed.id)", addImageToCache: true)
         }
     }
     
 
     // MARK: - Table view data source
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
+            // Displayed in the section with all information
             return "Information"
         case 1:
+            // Displayed in the URLs section
             return "More info:"
         default:
             return ""
@@ -146,10 +188,16 @@ class DetailTableViewController: UITableViewController, DetailTableViewDelegate 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
+        
+        // Setup table view cell
         cell.textLabel?.numberOfLines = 10
         if indexPath.section == 1 {
+            // For URLs
             cell.textLabel?.textColor = .systemBlue
             cell.textLabel?.textAlignment = .center
+        } else {
+            // For all information
+            cell.isUserInteractionEnabled = false
         }
         cell.textLabel?.text = breedArray[indexPath.section][indexPath.row]
 
@@ -158,13 +206,13 @@ class DetailTableViewController: UITableViewController, DetailTableViewDelegate 
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
+            // Creates a ViewController with type WebViewController
             guard let webVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "WebViewController") as? WebViewController else { return }
-            
+            // Shares string data with URL
             webVC.urlString = urls[indexPath.row]
-            
+            // Presents WebViewController
             let navigationC = UINavigationController()
             navigationC.viewControllers = [webVC]
-            
             present(navigationC, animated: true, completion: nil)
         }
     }

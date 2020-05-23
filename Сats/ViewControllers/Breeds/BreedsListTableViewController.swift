@@ -16,6 +16,8 @@ class BreedsListTableViewController: UITableViewController {
         // Castom Cell register
         tableView.register(UINib(nibName: "BreedTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "BreedTableViewCell")
         
+        self.showActivityIndicator()
+        
         getData(url: "https://api.thecatapi.com/v1/breeds") { data in
             
             // Uncomment to print all returned data
@@ -23,12 +25,13 @@ class BreedsListTableViewController: UITableViewController {
             // let dataString = String(data: data, encoding: .utf8)
             // print(dataString ?? "")
             
-            // Casting returned as CatBreed array
+            // Casting returned data as CatBreed array
             if let catBreeds = try? JSONDecoder().decode([CatBreed].self, from: data){
                 // Sets data to the Singleton
                 BreadsManager.shared.breedsArray = catBreeds
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    self.removeActivityIndicator()
                 }
             }
         }
@@ -41,9 +44,10 @@ class BreedsListTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BreedTableViewCell", for: indexPath) as! BreedTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BreedTableViewCell", for: indexPath) as? BreedTableViewCell else { return UITableViewCell() }
         // Gets one breed by index
         let breed = BreadsManager.shared.breedsArray[indexPath.row]
+        // Setup table view cell
         cell.nameLabel.text = breed.name
         cell.detailLabel.text = "Origin: " + breed.origin
         cell.arrowView.isHidden = false

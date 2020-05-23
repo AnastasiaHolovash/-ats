@@ -10,7 +10,6 @@ import UIKit
 
 let imageCache = NSCache<NSString, UIImage>()
 
-
 /**
  Gets an array with all breeds of cats from server.
  - Parameters:
@@ -59,23 +58,22 @@ extension UIImageView {
         var imageStringUrl: String?
         self.image = nil
         
+        // Sets activity Indicator
         let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(style: UIActivityIndicatorView.Style.medium)
         addSubview(activityIndicator)
         activityIndicator.startAnimating()
-        var activityIndicatorChangeY: CGFloat = 0.5
         if addImageToCache {
-            activityIndicatorChangeY = 2.5
+            activityIndicator.center = CGPoint(x: self.center.x, y: self.center.y * 2.5)
+        } else {
+            activityIndicator.center = CGPoint(x: self.center.x, y: self.center.y * 0.5)
         }
-        activityIndicator.center = CGPoint(x: self.center.x, y: self.center.y * activityIndicatorChangeY)
         
+        // Gets image
         getData(url: urlString) { data in
-//            let dataString = String(data: data, encoding: .utf8)
-//            print(dataString ?? "")
             if let breedsWithImage = try? JSONDecoder().decode([ImageAnsver].self, from: data) {
                 imageStringUrl = breedsWithImage[0].url
             }
             if let imageUrl = URL(string: imageStringUrl ?? "") {
-                
                 URLSession.shared.dataTask(with: imageUrl, completionHandler: { (data, response, error) in
                     if error != nil {
                         print(error!)

@@ -17,21 +17,13 @@ class BreedTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        roundColorLabel.layer.cornerRadius = CGFloat(Double(roundColorLabel.frame.height) / 5)
-//        roundColorLabel.layer.masksToBounds = true
-    }
-
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        roundColorLabel.layer.masksToBounds = true
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         nameLabel.text = nil
         detailLabel.text = nil
-        roundColorLabel.layer.masksToBounds = true
-        roundColorLabel.layer.cornerRadius = CGFloat(Double(roundColorLabel.frame.height) / 2)
         
     }
 }

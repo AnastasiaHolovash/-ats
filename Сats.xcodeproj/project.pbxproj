@@ -13,6 +13,9 @@
 		5DC824B624771628005968E7 /* NumberChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC824B524771628005968E7 /* NumberChooseViewController.swift */; };
 		5DC824B8247716CF005968E7 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC824B7247716CF005968E7 /* QuizViewController.swift */; };
 		5DC824BA247722B8005968E7 /* BreadsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC824B9247722B8005968E7 /* BreadsManager.swift */; };
+		5DE87AA324794C56002BD0C6 /* CatBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE87AA224794C56002BD0C6 /* CatBreed.swift */; };
+		5DE87AA524794C8C002BD0C6 /* ImageAnsver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE87AA424794C8C002BD0C6 /* ImageAnsver.swift */; };
+		5DE87AA724794CC2002BD0C6 /* QuizResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE87AA624794CC2002BD0C6 /* QuizResult.swift */; };
 		5DF872BA246EBF360023F03B /* DetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF872B9246EBF360023F03B /* DetailTableView.swift */; };
 		5DF872BE2472C0BA0023F03B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF872BD2472C0BA0023F03B /* WebViewController.swift */; };
 		5DF872C124730CC90023F03B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF872C024730CC80023F03B /* WebKit.framework */; };
@@ -20,10 +23,8 @@
 		5DFDFDA2246B2A7E00206265 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDFDA1246B2A7E00206265 /* SceneDelegate.swift */; };
 		5DFDFDA4246B2A7E00206265 /* BreedsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDFDA3246B2A7E00206265 /* BreedsListTableViewController.swift */; };
 		5DFDFDA7246B2A7F00206265 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DFDFDA5246B2A7F00206265 /* Main.storyboard */; };
-		5DFDFDAA246B2A7F00206265 /* _ats.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDFDA8246B2A7F00206265 /* _ats.xcdatamodeld */; };
 		5DFDFDAC246B2A8800206265 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DFDFDAB246B2A8800206265 /* Assets.xcassets */; };
 		5DFDFDAF246B2A8800206265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DFDFDAD246B2A8800206265 /* LaunchScreen.storyboard */; };
-		5DFDFDB7246B316300206265 /* Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDFDB6246B316300206265 /* Struct.swift */; };
 		5DFDFDBB246B379D00206265 /* BreedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDFDB9246B379D00206265 /* BreedTableViewCell.swift */; };
 		5DFDFDBC246B379D00206265 /* BreedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DFDFDBA246B379D00206265 /* BreedTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -35,6 +36,9 @@
 		5DC824B524771628005968E7 /* NumberChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberChooseViewController.swift; sourceTree = "<group>"; };
 		5DC824B7247716CF005968E7 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		5DC824B9247722B8005968E7 /* BreadsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreadsManager.swift; sourceTree = "<group>"; };
+		5DE87AA224794C56002BD0C6 /* CatBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatBreed.swift; sourceTree = "<group>"; };
+		5DE87AA424794C8C002BD0C6 /* ImageAnsver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAnsver.swift; sourceTree = "<group>"; };
+		5DE87AA624794CC2002BD0C6 /* QuizResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResult.swift; sourceTree = "<group>"; };
 		5DF872B9246EBF360023F03B /* DetailTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableView.swift; sourceTree = "<group>"; };
 		5DF872BD2472C0BA0023F03B /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		5DF872C024730CC80023F03B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -43,11 +47,9 @@
 		5DFDFDA1246B2A7E00206265 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5DFDFDA3246B2A7E00206265 /* BreedsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsListTableViewController.swift; sourceTree = "<group>"; };
 		5DFDFDA6246B2A7F00206265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5DFDFDA9246B2A7F00206265 /* _ats.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = _ats.xcdatamodel; sourceTree = "<group>"; };
 		5DFDFDAB246B2A8800206265 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DFDFDAE246B2A8800206265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5DFDFDB0246B2A8800206265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5DFDFDB6246B316300206265 /* Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Struct.swift; sourceTree = "<group>"; };
 		5DFDFDB9246B379D00206265 /* BreedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedTableViewCell.swift; sourceTree = "<group>"; };
 		5DFDFDBA246B379D00206265 /* BreedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreedTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,6 +66,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5DE87A9C24793F68002BD0C6 /* Breeds */ = {
+			isa = PBXGroup;
+			children = (
+				5DFDFDA3246B2A7E00206265 /* BreedsListTableViewController.swift */,
+				5D8AADFE246BFE300028D864 /* DetailTableViewController.swift */,
+				5DF872BD2472C0BA0023F03B /* WebViewController.swift */,
+			);
+			path = Breeds;
+			sourceTree = "<group>";
+		};
+		5DE87A9D24793F86002BD0C6 /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				5DC824B7247716CF005968E7 /* QuizViewController.swift */,
+				5DC824B524771628005968E7 /* NumberChooseViewController.swift */,
+			);
+			path = Quiz;
+			sourceTree = "<group>";
+		};
+		5DE87A9E24794120002BD0C6 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				5D8AAE02246C42910028D864 /* ServerManager.swift */,
+				5DC824B9247722B8005968E7 /* BreadsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		5DE87A9F247945E3002BD0C6 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				5DFDFDA5246B2A7F00206265 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		5DE87AA024794AB1002BD0C6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5D8AAE00246C0E3B0028D864 /* Extension.swift */,
+				5DF872B9246EBF360023F03B /* DetailTableView.swift */,
+				5DFDFDBD246B37B100206265 /* BreedTableViewCell */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		5DE87AA124794BF4002BD0C6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5DE87AA224794C56002BD0C6 /* CatBreed.swift */,
+				5DE87AA424794C8C002BD0C6 /* ImageAnsver.swift */,
+				5DE87AA624794CC2002BD0C6 /* QuizResult.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		5DF872BF24730CC70023F03B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,18 +152,14 @@
 			children = (
 				5DFDFD9F246B2A7E00206265 /* AppDelegate.swift */,
 				5DFDFDA1246B2A7E00206265 /* SceneDelegate.swift */,
-				5D8AAE02246C42910028D864 /* ServerManager.swift */,
-				5DC824B9247722B8005968E7 /* BreadsManager.swift */,
+				5DE87A9E24794120002BD0C6 /* Managers */,
 				5DFDFDB8246B36F500206265 /* ViewControllers */,
-				5DFDFDA5246B2A7F00206265 /* Main.storyboard */,
-				5DF872B9246EBF360023F03B /* DetailTableView.swift */,
-				5DFDFDBD246B37B100206265 /* BreedTableViewCell */,
-				5DFDFDB6246B316300206265 /* Struct.swift */,
-				5D8AAE00246C0E3B0028D864 /* Extension.swift */,
+				5DE87A9F247945E3002BD0C6 /* Storyboard */,
+				5DE87AA124794BF4002BD0C6 /* Models */,
+				5DE87AA024794AB1002BD0C6 /* Common */,
 				5DFDFDAB246B2A8800206265 /* Assets.xcassets */,
 				5DFDFDAD246B2A8800206265 /* LaunchScreen.storyboard */,
 				5DFDFDB0246B2A8800206265 /* Info.plist */,
-				5DFDFDA8246B2A7F00206265 /* _ats.xcdatamodeld */,
 			);
 			path = "Сats";
 			sourceTree = "<group>";
@@ -113,11 +167,8 @@
 		5DFDFDB8246B36F500206265 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				5DFDFDA3246B2A7E00206265 /* BreedsListTableViewController.swift */,
-				5D8AADFE246BFE300028D864 /* DetailTableViewController.swift */,
-				5DF872BD2472C0BA0023F03B /* WebViewController.swift */,
-				5DC824B524771628005968E7 /* NumberChooseViewController.swift */,
-				5DC824B7247716CF005968E7 /* QuizViewController.swift */,
+				5DE87A9C24793F68002BD0C6 /* Breeds */,
+				5DE87A9D24793F86002BD0C6 /* Quiz */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -204,14 +255,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DC824BA247722B8005968E7 /* BreadsManager.swift in Sources */,
+				5DE87AA524794C8C002BD0C6 /* ImageAnsver.swift in Sources */,
+				5DE87AA324794C56002BD0C6 /* CatBreed.swift in Sources */,
+				5DE87AA724794CC2002BD0C6 /* QuizResult.swift in Sources */,
 				5D8AADFF246BFE300028D864 /* DetailTableViewController.swift in Sources */,
 				5DF872BE2472C0BA0023F03B /* WebViewController.swift in Sources */,
 				5DFDFDBB246B379D00206265 /* BreedTableViewCell.swift in Sources */,
-				5DFDFDAA246B2A7F00206265 /* _ats.xcdatamodeld in Sources */,
 				5DC824B624771628005968E7 /* NumberChooseViewController.swift in Sources */,
 				5DFDFDA4246B2A7E00206265 /* BreedsListTableViewController.swift in Sources */,
 				5DFDFDA0246B2A7E00206265 /* AppDelegate.swift in Sources */,
-				5DFDFDB7246B316300206265 /* Struct.swift in Sources */,
 				5DC824B8247716CF005968E7 /* QuizViewController.swift in Sources */,
 				5DFDFDA2246B2A7E00206265 /* SceneDelegate.swift in Sources */,
 				5D8AAE03246C42910028D864 /* ServerManager.swift in Sources */,
@@ -370,7 +422,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Holovash.-ats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -388,7 +440,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Holovash.-ats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -414,19 +466,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		5DFDFDA8246B2A7F00206265 /* _ats.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				5DFDFDA9246B2A7F00206265 /* _ats.xcdatamodel */,
-			);
-			currentVersion = 5DFDFDA9246B2A7F00206265 /* _ats.xcdatamodel */;
-			path = _ats.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 5DFDFD94246B2A7E00206265 /* Project object */;
 }

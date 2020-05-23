@@ -32,51 +32,77 @@ class NumberChooseViewController: UIViewController, UITableViewDelegate, UITable
         button15.layer.cornerRadius = CGFloat(Double(button15.frame.height) / 2.5)
         button20.layer.cornerRadius = CGFloat(Double(button20.frame.height) / 2.5)
         
-        allResults = BreadsManager.shared.quizResult
-        tableView.reloadData()
+       updateQuizResults()
 
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        updateQuizResults()
+    }
+    
+    /// Getting data from User defaults by using singleton BreadsManager
+    func updateQuizResults() {
         allResults = BreadsManager.shared.quizResult
         tableView.reloadData()
     }
+
     
     @IBAction func didPressNumberButton(_ sender: UIButton) {
-
+        // Creates a ViewController with type QuizViewController
         guard let quizVC = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(identifier: "QuizViewController") as? QuizViewController else { return }
+        // Shares number of questions that was chosen by the user
         quizVC.numberOfQuestions = Int(sender.tag)
+        // Shows QuizViewController
         self.navigationController?.pushViewController(quizVC, animated: true)
     
     }
+    
+    
+    // MARK: - Table view data source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         allResults.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "BreedTableViewCell", for: indexPath) as! BreedTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BreedTableViewCell", for: indexPath) as? BreedTableViewCell else { return UITableViewCell() }
+        
         // Gets one result by index
         let oneResult = allResults[indexPath.row]
+        // Setup table view cell
         cell.nameLabel.text = "\(oneResult.numberRightAnswers) / \(oneResult.numberOfQuestions)"
-        cell.detailLabel.text = "\(oneResult.executionTime)"
+        cell.detailLabel.text = intTimeToString(oneResult.executionTime)
+        cell.roundColorLabel.backgroundColor = chooseColor(numberOfQuestions: oneResult.numberOfQuestions)
+        cell.roundColorLabel.text = "\(calculatesPercentage(numberOfQuestions: oneResult.numberOfQuestions, numberRightAnswers: oneResult.numberRightAnswers))%"
         cell.arrowView.isHidden = true
         cell.roundImageView.isHidden = true
         cell.roundColorLabel.isHidden = false
-        cell.roundColorLabel.backgroundColor = chooseColor(numberOfQuestions: oneResult.numberOfQuestions)
-        cell.roundColorLabel.text = "\(calculatesPercentage(numberOfQuestions: oneResult.numberOfQuestions, numberRightAnswers: oneResult.numberRightAnswers))%"
+        cell.layer.masksToBounds = true
         cell.roundColorLabel.layer.cornerRadius = CGFloat(Double(cell.roundColorLabel.frame.height) / 2)
         cell.isUserInteractionEnabled = false
-        cell.layer.masksToBounds = true
+        
         return cell
     }
     
-    
+    /**
+     Converts time interval with Int type to String.
+     - Parameters:
+        - intTime: time interval with Int type.
+     - Returns: time formated to String.
+     */
     func intTimeToString(_ intTime: Int) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm:ss"
-        let date = Date(timeIntervalSince1970: TimeInterval(intTime))
-        return formatter.string(from: date)
+        let interval = intTime
+
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.hour, .minute, .second]
+        formatter.unitsStyle = .abbreviated
+        
+        guard let formattedString = formatter.string(from: TimeInterval(interval)) else { return "" }
+        return formattedString
     }
     
     /// Calculates the percentage of correct answers.

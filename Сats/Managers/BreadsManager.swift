@@ -11,9 +11,9 @@ import UIKit
 class BreadsManager {
     
     static let shared = BreadsManager()
-    
+    /// Array of all breeds geting from server
     var breedsArray: [CatBreed] = []
-    
+    /// Array of all quizzes results
     var quizResult: [QuizResult] {
         get {
             if let data = UserDefaults.standard.data(forKey: "QuizResult") {
