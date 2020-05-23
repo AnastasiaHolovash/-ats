@@ -21,7 +21,7 @@ let imageCache = NSCache<NSString, UIImage>()
  */
 func getData(url: String, complition: @escaping (Data) -> ()) {
     
-    let url = URL(string: url)!
+    guard let url = URL(string: url) else { return }
     var request = URLRequest(url: url)
     request.httpMethod = "GET"
     request.addValue("application/json", forHTTPHeaderField: "a1c2bc18-dc1f-42e9-8795-43ad64d9cf4f")

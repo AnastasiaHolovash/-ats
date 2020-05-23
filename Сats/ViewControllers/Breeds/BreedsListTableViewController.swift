@@ -13,7 +13,7 @@ class BreedsListTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Castom Cell register
+        // Custom Cell register
         tableView.register(UINib(nibName: "BreedTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "BreedTableViewCell")
         
         self.showActivityIndicator()

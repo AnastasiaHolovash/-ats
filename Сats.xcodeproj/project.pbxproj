@@ -20,7 +20,6 @@
 		5DF872BE2472C0BA0023F03B /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF872BD2472C0BA0023F03B /* WebViewController.swift */; };
 		5DF872C124730CC90023F03B /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DF872C024730CC80023F03B /* WebKit.framework */; };
 		5DFDFDA0246B2A7E00206265 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDFD9F246B2A7E00206265 /* AppDelegate.swift */; };
-		5DFDFDA2246B2A7E00206265 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDFDA1246B2A7E00206265 /* SceneDelegate.swift */; };
 		5DFDFDA4246B2A7E00206265 /* BreedsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFDFDA3246B2A7E00206265 /* BreedsListTableViewController.swift */; };
 		5DFDFDA7246B2A7F00206265 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DFDFDA5246B2A7F00206265 /* Main.storyboard */; };
 		5DFDFDAC246B2A8800206265 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DFDFDAB246B2A8800206265 /* Assets.xcassets */; };
@@ -44,7 +43,6 @@
 		5DF872C024730CC80023F03B /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		5DFDFD9C246B2A7E00206265 /* Сats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Сats.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DFDFD9F246B2A7E00206265 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5DFDFDA1246B2A7E00206265 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5DFDFDA3246B2A7E00206265 /* BreedsListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsListTableViewController.swift; sourceTree = "<group>"; };
 		5DFDFDA6246B2A7F00206265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5DFDFDAB246B2A8800206265 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				5DFDFD9F246B2A7E00206265 /* AppDelegate.swift */,
-				5DFDFDA1246B2A7E00206265 /* SceneDelegate.swift */,
 				5DE87A9E24794120002BD0C6 /* Managers */,
 				5DFDFDB8246B36F500206265 /* ViewControllers */,
 				5DE87A9F247945E3002BD0C6 /* Storyboard */,
@@ -265,7 +262,6 @@
 				5DFDFDA4246B2A7E00206265 /* BreedsListTableViewController.swift in Sources */,
 				5DFDFDA0246B2A7E00206265 /* AppDelegate.swift in Sources */,
 				5DC824B8247716CF005968E7 /* QuizViewController.swift in Sources */,
-				5DFDFDA2246B2A7E00206265 /* SceneDelegate.swift in Sources */,
 				5D8AAE03246C42910028D864 /* ServerManager.swift in Sources */,
 				5DF872BA246EBF360023F03B /* DetailTableView.swift in Sources */,
 				5D8AAE01246C0E3B0028D864 /* Extension.swift in Sources */,

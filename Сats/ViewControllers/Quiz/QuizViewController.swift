@@ -12,11 +12,11 @@ class QuizViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var curentNumberLabel: UILabel!
+    @IBOutlet weak var currentNumberLabel: UILabel!
     
     //Variables
     var numberOfQuestions: Int = 0
-    var questionCurentNumber: Int = 1
+    var questionCurrentNumber: Int = 1
     var rightAnswerPlacement: Int = 0
     var numberOfRightAnswers: Int = 0
     var selectedAnswerButton: Int = 0
@@ -94,7 +94,7 @@ class QuizViewController: UIViewController {
         // If title is "Answer" changes it to "Next" or "View results"
         if nextButton.titleLabel?.text == "Answer" {
             showTheCorrectAnswer(tag: selectedAnswerButton)
-            if (questionCurentNumber - 1) == numberOfQuestions {
+            if (questionCurrentNumber - 1) == numberOfQuestions {
                 nextButton.setTitle("View results", for: .normal)
             } else {
                 nextButton.setTitle("Next", for: .normal)
@@ -102,7 +102,7 @@ class QuizViewController: UIViewController {
             return
         }
         // If title is not "Answer" and it was not the last question
-        if questionCurentNumber <= numberOfQuestions {
+        if questionCurrentNumber <= numberOfQuestions {
             nextButton.isEnabled = false
             nextButton.backgroundColor = .lightGray
             nextButton.setTitle("Answer", for: .normal)
@@ -142,16 +142,18 @@ class QuizViewController: UIViewController {
      */
     func randomPicture() {
         
-        curentNumberLabel.text = "\(questionCurentNumber)/\(numberOfQuestions)"
+        currentNumberLabel.text = "\(questionCurrentNumber)/\(numberOfQuestions)"
         var otherCatsNames: [String] = []
         //  right Cat choosing
         guard let rightCat = BreadsManager.shared.breedsArray.randomElement() else { return }
         // sets image of right Cat
         imageView.loadImage(withUrl: "https://api.thecatapi.com/v1/images/search?breed_id=\(rightCat.id)", addImageToCache: false)
         // other 3 Cats choosing
-        for _ in 0..<3 {
+        while otherCatsNames.count < 3 {
             guard let otherCat = BreadsManager.shared.breedsArray.randomElement() else { return }
-            otherCatsNames.append(otherCat.name)
+            if otherCat.name != rightCat.name && !otherCatsNames.contains(otherCat.name) {
+                otherCatsNames.append(otherCat.name)
+            }
         }
         // place for right answer choosing
         rightAnswerPlacement = Int.random(in: 1 ... 4)
@@ -166,7 +168,7 @@ class QuizViewController: UIViewController {
                 x += 1
             }
         }
-        questionCurentNumber += 1
+        questionCurrentNumber += 1
     }
     
     /// Sets Answer Buttons Color in the initial
